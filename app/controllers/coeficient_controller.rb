@@ -6,7 +6,8 @@ class CoeficientController < ApplicationController
   end
 
   def result
-    @this_number = params[:result_path][:name]
+    @user_rating = params[:result_path][:user_rating]
+    @film_imdb_rating = params[:result_path][:form_imdb_rating]
     respond_to do |format|
       format.html
       format.js
