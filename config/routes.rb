@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-
   devise_for :users
+  #devise_for :users, :controllers => {:sessions => "sessions"}
+  devise_scope :user do
+   get 'coeficient' => 'coeficient#index', as: :coeficient
+  end
   root to: 'pages#index'
+  post 'coeficient' => 'coeficient#result', as: "result"
+  #get 'coeficient' => 'coeficient#index', as: :coeficient
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
