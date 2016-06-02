@@ -3,14 +3,57 @@
   <div>Signed in as... <%= current_user.username %></div>
   <div>Coeficient: <%= current_user.coeficient %></div>
 <% end %>
+<input id="countries" name="movie" placeholder="Enter a movie" />
+<script type="text/javascript">
+var input = document.getElementById("countries");
+var awesomplete = new Awesomplete(input, {
+  minChars: 1,
+  autoFirst: true
+});
+
+$("input").on("keyup", function(){
+  $.ajax({
+    url: 'http://api.themoviedb.org/3/search/movie?query=' + this.value + '&api_key=0b56c7e05825db6e3182d1aa00d47307',
+    //url: 'http://www.omdbapi.com/?type=movie&s=' + this.value,
+    type: 'GET',
+    dataType: 'json'
+  })
+  .success(function(data) {
+    var list = [];
+    $.each(data['results'], function(key, value) {
+      //list.push(value[1]);
+      //console.log(value); // Object {poster_path: "/rHAyy1zqvwFo...} Object {poster_path: "/rHAyy1zqvwFo...}
+      var year = value[('release_date')].substring(0,4);
+      list.push(value['title'] + ' (' + year + ')' );
+    });
+    awesomplete.list = list;
+  });
+});
+
+Awesomplete.$.bind(input, {
+  "awesomplete-select": function(evt) {
+    var chosenMovie = evt.text['value']
+    var movieNameWithSpaces = chosenMovie.substr(0, chosenMovie.indexOf(' ('));
+    var movieName = movieNameWithSpaces.split(' ').join('+')
+    var movieYear = (chosenMovie.substr(chosenMovie.length - 5)).match(/\d+/)[0];
+    console.log(movieName);
+    console.log(movieYear);
+    $.ajax('http://www.omdbapi.com/?t=' + movieName + '&y=' + movieYear + '&type=movie&tomatoes=true', {
+        complete: function(p_oXHR, p_sStatus){
+            oData = $.parseJSON(p_oXHR.responseText);
+            ratingIMDB = Number(oData.imdbRating);
+            $('#imdbRating').text(ratingIMDB);
+            $('#form_movie').val(ratingIMDB)
+        }
+    });
+  }
+});
+
+</script>
 <script type="text/javascript">
 	var one = 1;
 	var two = 2;
 	var jsSum = one + two;
-	$(document).on('mouseenter', '#the_form', function(e) {
-		e.preventDefault();
-		$('#form_movie').val(jsSum);
-	});	
 </script>
 <br />
 <div id="the_form">
