@@ -7,7 +7,7 @@
 <script type="text/javascript">
 var input = document.getElementById("countries");
 var awesomplete = new Awesomplete(input, {
-  minChars: 1,
+  minChars: 3,
   autoFirst: true
 });
 
@@ -21,8 +21,6 @@ $("input").on("keyup", function(){
   .success(function(data) {
     var list = [];
     $.each(data['results'], function(key, value) {
-      //list.push(value[1]);
-      //console.log(value); // Object {poster_path: "/rHAyy1zqvwFo...} Object {poster_path: "/rHAyy1zqvwFo...}
       var year = value[('release_date')].substring(0,4);
       list.push(value['title'] + ' (' + year + ')' );
     });
@@ -36,8 +34,6 @@ Awesomplete.$.bind(input, {
     var movieNameWithSpaces = chosenMovie.substr(0, chosenMovie.indexOf(' ('));
     var movieName = movieNameWithSpaces.split(' ').join('+')
     var movieYear = (chosenMovie.substr(chosenMovie.length - 5)).match(/\d+/)[0];
-    console.log(movieName);
-    console.log(movieYear);
     $.ajax('http://www.omdbapi.com/?t=' + movieName + '&y=' + movieYear + '&type=movie&tomatoes=true', {
         complete: function(p_oXHR, p_sStatus){
             oData = $.parseJSON(p_oXHR.responseText);
@@ -50,11 +46,7 @@ Awesomplete.$.bind(input, {
 });
 
 </script>
-<script type="text/javascript">
-	var one = 1;
-	var two = 2;
-	var jsSum = one + two;
-</script>
+
 <br />
 <div id="the_form">
 	<%= form_for('result_path', remote: true, method: 'post') do |f| %>
