@@ -17,7 +17,7 @@ class CoeficientController < ApplicationController
     @film_imdb_rating = params[:result_path][:form_imdb_rating]
     @film_rotten_rating = params[:result_path][:form_rotten_rating]
 
-    if ((@film_imdb_rating).to_f > 0 && (@film_rotten_rating).to_f > 0) 
+    if ((@film_imdb_rating).to_f > 0 && (@film_rotten_rating).to_f > 0 && (@user_rating).to_f > 0) 
       puts "OKKKK" 
       ok = true
     else
