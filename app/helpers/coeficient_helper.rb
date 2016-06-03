@@ -5,4 +5,5 @@ module CoeficientHelper
     a += "<p>IMDB rating " + imdb + "</p>"
     return a
   end
+
 end

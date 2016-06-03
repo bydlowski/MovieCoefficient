@@ -6,7 +6,7 @@
   <div>Rotten: <%= current_user.rotten_rating %></div>
   <div>Metacritic: <%= current_user.metacritic_rating %></div>
   <br />
-  <div>This guy: <%= @user_imdb_rating %></div>
+  <div>This guy: <%= @current_user %></div>
   <br />
 <% end %>
 <input id="countries" name="movie" placeholder="Enter a movie" />
@@ -53,7 +53,7 @@
 
 <br />
 <div id="the_form">
-	<%= form_for('result_path', remote: true, method: 'post') do |f| %>
+	<%= form_for('result_path', remote: true, method: 'put', action: 'update') do |f| %>
 	  <%= f.label :user_rating %><br>
 	  <%= f.text_field :user_rating %>
 	  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
