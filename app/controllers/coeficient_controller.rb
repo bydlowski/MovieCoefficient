@@ -10,9 +10,10 @@ class CoeficientController < ApplicationController
 
   def update  
     @user = current_user
+    @user_rating = params[:result_path][:user_rating]
     @film_imdb_rating = params[:result_path][:form_imdb_rating]
     @user.update(imdb_rating: @film_imdb_rating)
-    flash.now[:success] = "Product donated!"
+    flash.now[:alert] = "Product donated!"
 
     respond_to do |format|
       format.html
