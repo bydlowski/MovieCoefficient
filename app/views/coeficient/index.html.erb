@@ -75,5 +75,9 @@
 </div>
 
 <br />
-<div><%= link_to "2017", result_path(this_year: 2017), :method => :post, :remote => true %></div>
+<div>
+	<%= link_to reset_path, action: 'update', :method => 'get' %>
+	<%= button_to "Reset", reset_path, data: { confirm: "Are you sure?" }, method: :update %>
+</div>
+
 <div id="result"></div>

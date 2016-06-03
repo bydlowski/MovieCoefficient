@@ -63,6 +63,8 @@ class CoeficientController < ApplicationController
 
   end
 
+  
+
   def rating_param
      params.require(:result_path).permit(:imdb_rating, :imdb_rating_array)
   end

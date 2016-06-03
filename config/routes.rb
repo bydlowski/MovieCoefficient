@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #post 'coeficient' => 'coeficient#result', as: "result"
   #put 'coeficient' => 'coeficient#result', as: "result"
   put 'coeficient' => 'coeficient#update', as: "result"
+  post 'reset' => 'reset#update', as: "reset"
   #get 'coeficient' => 'coeficient#index', as: :coeficient
   
   # The priority is based upon order of creation: first created -> highest priority.
