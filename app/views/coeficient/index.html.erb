@@ -38,8 +38,7 @@
 	Awesomplete.$.bind(input, {
 	  "awesomplete-select": function(evt) {
 	    var chosenMovie = evt.text['value']
-	    var tmdbRating = evt.text['extra'];
-      console.log(tmdbRating);
+	    var ratingTMDB = evt.text['extra'];
 	    var movieNameWithSpaces = chosenMovie.substr(0, chosenMovie.indexOf(' ('));
 	    var movieName = movieNameWithSpaces.split(' ').join('+')
 	    var movieYear = (chosenMovie.substr(chosenMovie.length - 5)).match(/\d+/)[0];
@@ -48,9 +47,14 @@
 	            oData = $.parseJSON(p_oXHR.responseText);
 	            ratingIMDB = Number(oData.imdbRating);
 	            ratingRotten = Number(oData.tomatoRating);
+	            preRatingMetacritic = Number(oData.Metascore);
+	            console.log(preRatingMetacritic);
+	            ratingMetacritic = parseFloat(preRatingMetacritic) / 10;
+	            console.log(ratingMetacritic);
 	            $('#form_imdb_rating').val(ratingIMDB);
 	            $('#form_rotten_rating').val(ratingRotten);
-	            $('#form_tmdb_rating').val(tmdbRating);
+	            $('#form_tmdb_rating').val(ratingTMDB);
+	            $('#form_metacritic_rating').val(ratingMetacritic);
 	        }
 	    });
 	  }
@@ -65,6 +69,7 @@
 	  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
 	  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
 	  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
+	  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
 	  <%= f.submit %>
 	<% end %>
 </div>

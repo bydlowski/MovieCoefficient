@@ -1,12 +1,13 @@
 module CoeficientHelper
-  def current_coeficient(user, imdb, rotten, tmdb)
+  def current_coeficient(user, imdb, rotten, tmdb, metacritic)
 
-    if (imdb.to_f > 0 && rotten.to_f > 0 && tmdb.to_f > 0 && user.to_f > 0)
+    if (imdb.to_f > 0 && rotten.to_f > 0 && tmdb.to_f > 0 && metacritic.to_f > 0 && user.to_f > 0)
       a = ""
       a += "<p>User rating " + user + "</p>"
       a += "<p>IMDB rating " + imdb + "</p>"
       a += "<p>Rotten rating " + rotten + "</p>"
       a += "<p>TMDB rating " + tmdb + "</p>"
+      a += "<p>Metacritic rating " + metacritic + "</p>"
       return a
     elsif (imdb.to_f > 0 && rotten.to_f > 0 && tmdb.to_f > 0)
       a = ""
