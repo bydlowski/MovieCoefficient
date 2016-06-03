@@ -11,32 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602194837) do
+ActiveRecord::Schema.define(version: 20160603133234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",               default: "",  null: false
-    t.string   "email",                  default: ""
-    t.string   "encrypted_password",     default: "",  null: false
+    t.string   "username",                default: "",  null: false
+    t.string   "email",                   default: ""
+    t.string   "encrypted_password",      default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,   null: false
+    t.integer  "sign_in_count",           default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.integer  "failed_attempts",        default: 0,   null: false
+    t.integer  "failed_attempts",         default: 0,   null: false
     t.datetime "locked_at"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.text     "coeficient",             default: "0"
-    t.float    "imdb_rating",            default: 0.0
-    t.float    "rotten_rating",          default: 0.0
-    t.float    "metacritic_rating",      default: 0.0
-    t.float    "tmdb_rating",            default: 0.0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.text     "coeficient",              default: "0"
+    t.float    "imdb_rating",             default: 0.0
+    t.float    "rotten_rating",           default: 0.0
+    t.float    "metacritic_rating",       default: 0.0
+    t.float    "tmdb_rating",             default: 0.0
+    t.string   "imdb_rating_array",       default: [],               array: true
+    t.string   "rotten_rating_array",     default: [],               array: true
+    t.string   "metacritic_rating_array", default: [],               array: true
+    t.string   "tmdb_rating_array",       default: [],               array: true
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

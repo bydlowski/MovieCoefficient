@@ -19,10 +19,20 @@ class CoeficientController < ApplicationController
     # Compare ratings user/website
     def percent_difference(u_rating, w_rating)
       absolute_difference = (u_rating - w_rating).abs
-      result = 1 - (absolute_difference / 4)
+      if absolute_difference > 4
+        result = 0
+      else
+        result = 1 - (absolute_difference / 4)
+      end
     end
 
+
+
     if @user.update(rating_param)
+      puts "@user_rating: #{@user_rating}"
+      puts "@film_imdb_rating: #{@film_imdb_rating}"
+      puts percent_difference((@user_rating).to_f, (@film_imdb_rating).to_f)
+      (current_user.imdb_rating_array).push(percent_difference((@user_rating).to_f, (@film_imdb_rating).to_f))
       @user.update(imdb_rating: @film_imdb_rating)
     else
       redirect 'coeficient_path'
