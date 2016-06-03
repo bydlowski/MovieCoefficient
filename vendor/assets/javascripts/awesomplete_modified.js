@@ -124,8 +124,9 @@ _.prototype = {
 						var text = el.textContent.trim();
 						var value = el.value || text;
 						var label = el.label || text;
+						var extra = el.extra || text;
 						if (value !== "") {
-							items.push({ label: label, value: value });
+							items.push({ label: label, value: value, extra: extra });
 						}
 					}
 				});
@@ -293,11 +294,12 @@ _.DATA = function (item/*, input*/) { return item; };
 
 function Suggestion(data) {
 	var o = Array.isArray(data)
-	  ? { label: data[0], value: data[1] }
+	  ? { label: data[0], value: data[1], extra: data[2] }
 	  : typeof data === "object" && "label" in data && "value" in data ? data : { label: data, value: data };
 
 	this.label = o.label || o.value;
 	this.value = o.value;
+	this.extra = o.extra;
 }
 Object.defineProperty(Suggestion.prototype = Object.create(String.prototype), "length", {
 	get: function() { return this.label.length; }

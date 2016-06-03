@@ -26,9 +26,10 @@
 	  })
 	  .success(function(data) {
 	    var list = [];
-	    $.each(data['results'], function(key, value) {
-	      var year = value[('release_date')].substring(0,4);
-	      list.push(value['title'] + ' (' + year + ')' );
+	    $.each(data['results'], function(key, info) {
+	      var year = info[('release_date')].substring(0,4);
+	      //list.push(value['title'] + ' (' + year + ')' );
+	      list.push({label: info['title'] + ' (' + year + ')', value: info['title'] + ' (' + year + ')', extra: info['vote_average']});
 	    });
 	    awesomplete.list = list;
 	  });
@@ -37,6 +38,8 @@
 	Awesomplete.$.bind(input, {
 	  "awesomplete-select": function(evt) {
 	    var chosenMovie = evt.text['value']
+	    var tmdbRating = evt.text['extra'];
+      console.log(tmdbRating);
 	    var movieNameWithSpaces = chosenMovie.substr(0, chosenMovie.indexOf(' ('));
 	    var movieName = movieNameWithSpaces.split(' ').join('+')
 	    var movieYear = (chosenMovie.substr(chosenMovie.length - 5)).match(/\d+/)[0];
@@ -47,6 +50,7 @@
 	            ratingRotten = Number(oData.tomatoRating);
 	            $('#form_imdb_rating').val(ratingIMDB);
 	            $('#form_rotten_rating').val(ratingRotten);
+	            $('#form_tmdb_rating').val(tmdbRating);
 	        }
 	    });
 	  }
@@ -60,6 +64,7 @@
 	  <%= f.text_field :user_rating %>
 	  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
 	  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
+	  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
 	  <%= f.submit %>
 	<% end %>
 </div>
