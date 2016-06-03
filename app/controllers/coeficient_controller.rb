@@ -8,12 +8,18 @@ class CoeficientController < ApplicationController
     
   end
 
-  def update  
+  def update 
+
+    # UPDATE USER RATINGS
     @user = current_user
     @user_rating = params[:result_path][:user_rating]
     @film_imdb_rating = params[:result_path][:form_imdb_rating]
-    @user.update(imdb_rating: @film_imdb_rating)
-    flash.now[:alert] = "Product donated!"
+    #@user.update(imdb_rating: @film_imdb_rating)
+    if @user.update(rating_param)
+      @user.update(imdb_rating: @film_imdb_rating)
+    else
+      redirect 'coeficient_path'
+    end
 
     respond_to do |format|
       format.html
@@ -22,21 +28,8 @@ class CoeficientController < ApplicationController
 
   end
 
-  def result
-
-    # UPDATE USER RATINGS
-    @user_rating = params[:result_path][:user_rating]
-    #IMDB
-    @film_imdb_rating = params[:result_path][:form_imdb_rating]
-    @user.update_all(imdb_rating: @film_imdb_rating)
-    #flash[:notice] = 'Book was successfully updated.'
-    
-
-    respond_to do |format|
-      format.html
-      format.js
-    end  
-    
+  def rating_param
+     params.require(:result_path).permit(:imdb_rating)
   end
 
 end
