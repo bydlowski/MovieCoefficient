@@ -64,14 +64,14 @@
 
 <br />
 <div id="the_form">
-	<%= form_for('result_path', remote: true, method: 'put', action: 'update') do |f| %>
+	<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
 	  <%= f.label :user_rating %><br>
-	  <%= f.text_field :user_rating %>
+	  <%= f.text_field :user_rating, id: 'textSubmit' %>
 	  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
 	  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
 	  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
 	  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
-	  <%= f.submit %>
+	  <%= f.submit "Submit", id: 'resultSubmit' %>
 	<% end %>
 </div>
 
