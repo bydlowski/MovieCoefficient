@@ -7,11 +7,14 @@ $(document).on('ready page:load', function () {
 	  $input_value = $form.children("#textSubmit").val();
 	  $label = $form.children("#textSubmit").siblings("label");
 	  $label.text($input_value);
-	})
+	});
 	$("#the_form form").on('keyup', function() {
 	  $form = $(this);
 	  $input_value = $form.children("#textSubmit").val();
 	  $label = $form.children("#textSubmit").siblings("label");
 	  $label.text($input_value);
+	});
+	$(".erase").on('click', function() {
+	  $('#countries').val('');
 	})
 });

@@ -1,27 +1,22 @@
 <section>
-	<h1>Coeficient</h1>
-</section>
-<section>
 	<div class="row">
 
-	  <div class="small-12 large-2 columns">
-		  <% if user_signed_in? %>
-			  <div>IMDB: <%= current_user.imdb_rating %></div>
-			  <div>TMDB: <%= current_user.tmdb_rating %></div>
-			  <div>Rotten: <%= current_user.rotten_rating %></div>
-			  <div>Metacritic: <%= current_user.metacritic_rating %></div>
-			  <div>Movies rated: <%= current_user.amount %></div>
-			  <br />
-			  <div>This guy: <%= @current_user %></div>
-			  <br />
-			  <div>
-					<%= button_to "Reset", reset_path, data: { confirm: "Are you sure?" }, method: :update %>
-				</div>
-			<% end %>
+	  <div class="small-12 large-2 columns sidebar"> 
+	  	<h3 style="color: white;">Personal Coeficient</h3>	
+		  <div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-rotten">Rotten<span><%= ((current_user.rotten_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-metacritic">Metacritic<span><%= ((current_user.metacritic_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-tmdb">TMDB<span><%= ((current_user.tmdb_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-number"><span class="text-amount">Movies rated</span><span class="number-amount"><%= current_user.amount %></span></div>
+		  <div class="restart">
+		  	<p>If you want to restart the coeficient, click the button below:</p>
+				<%= button_to "Reset", reset_path, class: 'alert button', data: { confirm: "Are you sure?" }, method: :update %>
+			</div>
 		</div>
-	  <div class="small-12 large-10 columns">
+	  <div class="small-12 large-10 columns main">
 	  	<div class="rating-suggestion">
 		  	<input id="countries" name="movie" placeholder="Enter a movie" />
+		  	<button class="alert hollow button erase">X</button>
 		  	<br />
 				<div id="the_form">
 					<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
@@ -31,10 +26,11 @@
 					  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
 					  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
 					  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
-					  <%= f.submit "Submit", id: 'resultSubmit' %>
+					  <%= f.submit "Submit", id: 'resultSubmit', class: "button" %>
 					<% end %>
 				</div>
-	  </div>
+	  	</div>
+	  	<div class="suggestion-info"></div>
 	  </div>
 
 	</div>
@@ -89,6 +85,7 @@
 	            $('#form_rotten_rating').val(ratingRotten);
 	            $('#form_tmdb_rating').val(ratingTMDB);
 	            $('#form_metacritic_rating').val(ratingMetacritic);
+	            $('.suggestion-info').html('<div class="info-poster"><img src="' + oData.Poster + '">');
 	        }
 	    });
 	  }

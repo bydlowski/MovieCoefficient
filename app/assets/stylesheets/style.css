@@ -1,0 +1,92 @@
+/** GENERAL **/
+
+/** Width of all the input fields **/
+[type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'],
+textarea {
+  width: 25vw!important;
+}
+/** Movie input **/
+.main {
+	padding: 1em;
+}
+div.awesomplete > input {
+	width: 60vw;
+	font-size: 2rem;
+}
+.search-names img {
+	height: 8vh;
+}
+.search-names  {
+	text-align: left;
+}
+.result-image {
+	display: inline-block;
+}
+.result-text {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.5em;
+	margin-left: 1em;
+}
+.rating-suggestion {
+	text-align: center;
+}
+/** Sugestion information */
+.info-poster {
+	margin: 2em 1em;
+}
+.info-poster img {
+	height: 40vh;
+}
+/** SIDEBAR **/
+.sidebar {
+	padding: 0.3em;
+	text-align: center;
+	color: white;
+}
+.restart {
+	background-color: white;
+	color: black;
+	padding: 1em;
+	margin-top: 5em;
+}
+.sidebar-site {
+	font-size: 3vmin;
+	text-align: left;
+	padding: 0.5em;
+}
+.sidebar-site span {
+	width: 25%;
+	float: right;
+}
+.coef-imdb {
+	background-color: yellow;
+	color: black;
+}
+.coef-rotten {
+	background-color: green;
+}
+.coef-metacritic {
+	background-color: darkgreen;
+}
+.coef-tmdb {
+	background-color: lime;
+}
+.coef-number {
+	background-color: white;
+	color: black;
+	padding: 0;
+}
+.text-amount {
+	font-size: 3vmin;
+	padding: 0.5em;
+	float: left!important;
+	background-color: white;
+	width: 75%!important;
+}
+.number-amount {
+	background-color: red;
+	color: white;
+	padding: 0.5em;
+	text-align: center;
+}
