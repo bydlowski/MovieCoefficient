@@ -19,6 +19,14 @@
 
 @import "foundation_and_overrides";
 
+.row {
+    max-width: 95vw;
+    padding: 1em;
+}
+.rating-suggestion {
+	text-align: center;
+}
+
 /** Width of all the input fields **/
 [type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'],
 textarea {
@@ -28,4 +36,19 @@ textarea {
 div.awesomplete > input {
 	width: 60vw;
 	font-size: 2rem;
+}
+.search-names img {
+	height: 8vh;
+}
+.search-names  {
+	text-align: left;
+}
+.result-image {
+	display: inline-block;
+}
+.result-text {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.5em;
+	margin-left: 1em;
 }

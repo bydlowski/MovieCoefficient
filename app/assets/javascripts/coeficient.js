@@ -6,12 +6,12 @@ $(document).on('ready page:load', function () {
 	  $form = $(this);
 	  $input_value = $form.children("#textSubmit").val();
 	  $label = $form.children("#textSubmit").siblings("label");
-	  $label.text("Current Value = " + $input_value);
+	  $label.text($input_value);
 	})
 	$("#the_form form").on('keyup', function() {
 	  $form = $(this);
 	  $input_value = $form.children("#textSubmit").val();
 	  $label = $form.children("#textSubmit").siblings("label");
-	  $label.text("Current Value = " + $input_value);
+	  $label.text($input_value);
 	})
 });

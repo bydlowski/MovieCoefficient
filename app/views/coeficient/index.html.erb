@@ -20,19 +20,21 @@
 			<% end %>
 		</div>
 	  <div class="small-12 large-10 columns">
-	  	<input id="countries" name="movie" placeholder="Enter a movie" />
-	  	<br />
-			<div id="the_form">
-				<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
-				  <%= f.label :user_rating, "Current Value = 5" %><br>
-				  <%= f.range_field :user_rating, min: 0, max: 10, step: 0.1, class:'a', id: 'textSubmit' %>
-				  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
-				  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
-				  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
-				  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
-				  <%= f.submit "Submit", id: 'resultSubmit' %>
-				<% end %>
-			</div>
+	  	<div class="rating-suggestion">
+		  	<input id="countries" name="movie" placeholder="Enter a movie" />
+		  	<br />
+				<div id="the_form">
+					<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
+					  <%= f.range_field :user_rating, min: 0, max: 10, step: 0.1, class:'a', id: 'textSubmit' %>
+					  <%= f.label :user_rating, "5" %>
+					  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
+					  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
+					  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
+					  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
+					  <%= f.submit "Submit", id: 'resultSubmit' %>
+					<% end %>
+				</div>
+	  </div>
 	  </div>
 
 	</div>
@@ -59,7 +61,11 @@
 	    $.each(data['results'], function(key, info) {
 	      var year = info[('release_date')].substring(0,4);
 	      //list.push(value['title'] + ' (' + year + ')' );
-	      list.push({label: info['title'] + ' (' + year + ')', value: info['title'] + ' (' + year + ')', extra: info['vote_average']});
+	      list.push({
+	      	//label: info['title'] + ' (' + year + ')', 
+	      	label: '<div class="search-names"><div class="result-image"><img src="http://image.tmdb.org/t/p/w500/' + info['poster_path'] + '" /></div><div class="result-text">' + info['title'] + '<br />(' + year + ')</div></div>', 
+	      	value: info['title'] + ' (' + year + ')', 
+	      	extra: info['vote_average']});
 	    });
 	    awesomplete.list = list;
 	  });
