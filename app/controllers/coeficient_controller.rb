@@ -50,10 +50,11 @@ class CoeficientController < ApplicationController
         (current_user.rotten_rating_array).push(percent_difference((@user_rating).to_f, (@film_rotten_rating).to_f))
         (current_user.tmdb_rating_array).push(percent_difference((@user_rating).to_f, (@film_tmdb_rating).to_f))
         (current_user.metacritic_rating_array).push(percent_difference((@user_rating).to_f, (@film_metacritic_rating).to_f))
+        current_user.amount += 1
         @user.update(coeficient: @user_rating)
       end
     else
-      redirect 'coeficient_path'
+      redirect_to root_url
     end
 
     respond_to do |format|
