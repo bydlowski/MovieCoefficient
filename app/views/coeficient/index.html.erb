@@ -1,9 +1,5 @@
 <section>
 	<h1>Coeficient</h1>
-	<div class="username-header">
-		<% if user_signed_in? %>
-			<div>Signed in as... <%= current_user.username %></div>
-		<% end %>
 </section>
 <section>
 	<div class="row">
@@ -22,7 +18,7 @@
 					<%= button_to "Reset", reset_path, data: { confirm: "Are you sure?" }, method: :update %>
 				</div>
 			<% end %>
-	  </div>
+		</div>
 	  <div class="small-12 large-10 columns">
 	  	<input id="countries" name="movie" placeholder="Enter a movie" />
 	  	<br />
