@@ -2,12 +2,14 @@
 	<div class="row">
 
 	  <div class="small-12 large-2 columns sidebar"> 
-	  	<h3 style="color: white;">Personal Coeficient</h3>	
-		  <div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
-		  <div class="sidebar-site coef-rotten">Rotten<span><%= ((current_user.rotten_rating) * 100).to_i %>%</span></div>
-		  <div class="sidebar-site coef-metacritic">Metacritic<span><%= ((current_user.metacritic_rating) * 100).to_i %>%</span></div>
-		  <div class="sidebar-site coef-tmdb">TMDB<span><%= ((current_user.tmdb_rating) * 100).to_i %>%</span></div>
-		  <div class="sidebar-site coef-number"><span class="text-amount">Movies rated</span><span class="number-amount"><%= current_user.amount %></span></div>
+	  	<h3 style="color: white;">Personal Coeficient</h3>
+	  	<div class="userRatings">
+	  		<div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
+			  <div class="sidebar-site coef-rotten">Rotten<span><%= ((current_user.rotten_rating) * 100).to_i %>%</span></div>
+			  <div class="sidebar-site coef-metacritic">Metacritic<span><%= ((current_user.metacritic_rating) * 100).to_i %>%</span></div>
+			  <div class="sidebar-site coef-tmdb">TMDB<span><%= ((current_user.tmdb_rating) * 100).to_i %>%</span></div>
+			  <div class="sidebar-site coef-number"><span class="text-amount">Movies rated</span><span class="number-amount"><%= current_user.amount %></span></div>
+	  	</div>
 		  <div class="restart">
 		  	<p>If you want to restart the coeficient, click the button below:</p>
 				<%= button_to "Reset", reset_path, class: 'alert button', data: { confirm: "Are you sure?" }, method: :update %>

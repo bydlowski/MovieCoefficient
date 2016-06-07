@@ -1,3 +1,3 @@
-$("#result").html('<%= current_coeficient(@user_rating, @film_imdb_rating, @film_rotten_rating, @film_tmdb_rating, @film_metacritic_rating).html_safe %>');
+$(".userRatings").html('<%= current_coeficient(@imdb_now , @rotten_now, @metacritic_now, @tmdb_now, @amount_now).html_safe %>');
 $('#countries').val('');
 $('#textSubmit').val('');

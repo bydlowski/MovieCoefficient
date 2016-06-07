@@ -54,22 +54,19 @@ class CoeficientController < ApplicationController
         (current_user.rotten_rating_array).each { |x| new_rotten_array << x.to_f }
         (current_user.tmdb_rating_array).each { |x| new_tmdb_array << x.to_f }
         (current_user.metacritic_rating_array).each { |x| new_metacritic_array << x.to_f }
-        puts "new_imdb_array: #{new_imdb_array}"
-        puts "new_rotten_array: #{new_rotten_array}"
-        puts "new_tmdb_array: #{new_tmdb_array}"
-        puts "new_metacritic_array: #{new_metacritic_array}"
         imdb_average = new_imdb_array.inject{ |sum, el| sum + el }.to_f / (new_imdb_array).size
         rotten_average = new_rotten_array.inject{ |sum, el| sum + el }.to_f / (new_rotten_array).size
         tmdb_average = new_tmdb_array.inject{ |sum, el| sum + el }.to_f / (new_tmdb_array).size
         metacritic_average = new_metacritic_array.inject{ |sum, el| sum + el }.to_f / (new_metacritic_array).size
-        puts "imdb_average: #{imdb_average}"
-        puts "rotten_average: #{rotten_average}"
-        puts "tmdb_average: #{tmdb_average}"
-        puts "metacritic_average: #{metacritic_average}"
         current_user.imdb_rating = imdb_average.round(2)
         current_user.rotten_rating = rotten_average.round(2)
         current_user.tmdb_rating = tmdb_average.round(2)
         current_user.metacritic_rating = metacritic_average.round(2)
+        @imdb_now = current_user.imdb_rating
+        @rotten_now = current_user.rotten_rating
+        @metacritic_now = current_user.metacritic_rating
+        @tmdb_now = current_user.tmdb_rating
+        @amount_now = current_user.amount
         @user.update(coeficient: @user_rating)
       end
     else
