@@ -68,6 +68,12 @@ class CoeficientController < ApplicationController
         @tmdb_now = current_user.tmdb_rating
         @amount_now = current_user.amount
         @user.update(coeficient: @user_rating)
+      else
+        @imdb_now = current_user.imdb_rating
+        @rotten_now = current_user.rotten_rating
+        @metacritic_now = current_user.metacritic_rating
+        @tmdb_now = current_user.tmdb_rating
+        @amount_now = current_user.amount
       end
     else
       redirect_to root_url
