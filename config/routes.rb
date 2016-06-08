@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   #devise_for :users, :controllers => {:sessions => "sessions"}
   devise_scope :user do
-   get 'coeficient' => 'coeficient#index', as: :coeficient
+   get 'coefficient' => 'coefficient#index', as: :coefficient
   end
   root to: 'pages#index'
-  #post 'coeficient' => 'coeficient#result', as: "result"
-  #put 'coeficient' => 'coeficient#result', as: "result"
-  put 'coeficient' => 'coeficient#update', as: "result"
+  #post 'coefficient' => 'coefficient#result', as: "result"
+  #put 'coefficient' => 'coefficient#result', as: "result"
+  put 'coefficient' => 'coefficient#update', as: "result"
   post 'reset' => 'reset#update', as: "reset"
-  #get 'coeficient' => 'coeficient#index', as: :coeficient
+  #get 'coefficient' => 'coefficient#index', as: :coefficient
 
   get 'about' => 'pages#about', as: "about"
   get 'wut' => 'pages#wut', as: "wut"

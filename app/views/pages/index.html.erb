@@ -13,7 +13,7 @@
 		  			<p class="website-rating" id="frontRatingIMDB">0.0</p>
 		  		</div>
 		  		<div class="sidebar-site coef-coef half-sidebar" style="border-left: none!important;">
-		  			<p class="website-title">Coeficient</p>
+		  			<p class="website-title">Coefficient</p>
 		  			<% if user_signed_in? %>
 		  				<p class="website-rating rat-imdb" rat="<%= current_user.imdb_rating %>" >
 								<%= ((current_user.imdb_rating) * 100).to_i %>%
@@ -31,7 +31,7 @@
 		  			<p class="website-rating" id="frontRatingRotten">0.0</p>
 		  		</div>
 		  		<div class="sidebar-site coef-coef half-sidebar" style="border-left: none!important;">
-		  			<p class="website-title">Coeficient</p>
+		  			<p class="website-title">Coefficient</p>
 		  			<% if user_signed_in? %>
 		  				<p class="website-rating rat-rotten" rat="<%= current_user.rotten_rating %>" >
 								<%= ((current_user.rotten_rating) * 100).to_i %>%
@@ -49,7 +49,7 @@
 		  			<p class="website-rating" id="frontRatingMetacritic">0.0</p>
 		  		</div>
 		  		<div class="sidebar-site coef-coef half-sidebar" style="border-left: none!important;">
-		  			<p class="website-title">Coeficient</p>
+		  			<p class="website-title">Coefficient</p>
 		  			<% if user_signed_in? %>
 		  				<p class="website-rating rat-metacritic" rat="<%= current_user.metacritic_rating %>" >
 								<%= ((current_user.metacritic_rating) * 100).to_i %>%
@@ -67,7 +67,7 @@
 		  			<p class="website-rating" id="frontRatingTMDB">0.0</p>
 		  		</div>
 		  		<div class="sidebar-site coef-coef half-sidebar" style="border-left: none!important;">
-		  			<p class="website-title">Coeficient</p>
+		  			<p class="website-title">Coefficient</p>
 		  			<% if user_signed_in? %>
 		  				<p class="website-rating rat-tmdb" rat="<%= current_user.tmdb_rating %>" >
 								<%= ((current_user.tmdb_rating) * 100).to_i %>%

@@ -1,6 +1,6 @@
-module CoeficientHelper
+module CoefficientHelper
 
-  def current_coeficient(imdb, rotten, tmdb, metacritic, amount)
+  def current_coefficient(imdb, rotten, tmdb, metacritic, amount)
 
     imdb_rating_helper = ((imdb * 100).to_i).to_s
     rotten_rating_helper = ((rotten * 100).to_i).to_s
@@ -35,7 +35,7 @@ module CoeficientHelper
     else 
       a = ""
       a += "<p>Please pick another movie. The selected one does not have a rating on IMDB, Rotten Tomatoes, Metacritic or The Movie DB</p>"
-      a += "<p>This rating was not saved in your coeficient</p>"
+      a += "<p>This rating was not saved in your coefficient</p>"
       return a
     end
 

@@ -2,14 +2,14 @@
   <h1>Explanation</h1>
   <h3>What is going on here?</h3>
   <p>If you saw our <%= link_to 'about', about_path %>  page, you know that we intend on creating a way to add a little bit of personal touch to movie ratings.</p>
-  <p>This is done through our 'coeficient', a calculation that gives you a movie rating based on your choices.</p>
-  <p>The coeficient code is very simple. Once you select a movie in the coeficient page, we will pick the ratings for it in <a href="http://www.imdb.com/">IMDB</a>, <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a>, <a href="http://www.metacritic.com/">Metacritic</a> and <a href="https://www.themoviedb.org/">The Movie Database</a>, four of the biggest and most used movie websites. You will, then, rate this movie based on you personal opinion. Next we pick all these ratings and compare them.</p>
+  <p>This is done through our 'coefficient', a calculation that gives you a movie rating based on your choices.</p>
+  <p>The coefficient code is very simple. Once you select a movie in the coefficient page, we will pick the ratings for it in <a href="http://www.imdb.com/">IMDB</a>, <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a>, <a href="http://www.metacritic.com/">Metacritic</a> and <a href="https://www.themoviedb.org/">The Movie Database</a>, four of the biggest and most used movie websites. You will, then, rate this movie based on you personal opinion. Next we pick all these ratings and compare them.</p>
   <p>We decided to add a little bit of flavour to this comparison. We believe that if you choose a rating that is only 0.5 points away from the one from a website, you should receive a much higher 'similarity rating' than if you were 2.5 points away - not just a 20% difference. So our algorithim works with this different scale, where a three points difference is very large.</p>
   <p>
     <% if user_signed_in? %>
-			<p>Now you just need to go to the <%= link_to 'coeficient', coeficient_path %> page and start having fun :P</p>
+			<p>Now you just need to go to the <%= link_to 'coefficient', coefficient_path %> page and start having fun :P</p>
 		<% else %>
-      <p>Before you start building coeficients you need to <%= link_to 'log in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %>!</p>
+      <p>Before you start building coefficients you need to <%= link_to 'log in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %>!</p>
     <% end %>
   </p>
   <p>If you want to learn more, visit this project's <a href="https://github.com/bydlowski/MovieCoeficient">github</a> page.</p>

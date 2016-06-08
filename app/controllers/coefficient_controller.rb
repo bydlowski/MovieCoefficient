@@ -1,4 +1,4 @@
-class CoeficientController < ApplicationController
+class CoefficientController < ApplicationController
   before_filter :authenticate_user!
 
   def index
@@ -37,7 +37,7 @@ class CoeficientController < ApplicationController
       end
     end
 
-    # Update the arrays and coeficients in the database
+    # Update the arrays and coefficients in the database
     if @user.update(rating_param)
       puts percent_difference((@user_rating).to_f, (@film_imdb_rating).to_f)
       if ok
