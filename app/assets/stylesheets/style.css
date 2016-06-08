@@ -59,19 +59,10 @@ div.awesomplete > input {
 	width: 25%;
 	float: right;
 }
-.coef-imdb {
-	background-color: yellow;
-	color: black;
-}
-.coef-rotten {
-	background-color: green;
-}
-.coef-metacritic {
-	background-color: darkgreen;
-}
-.coef-tmdb {
-	background-color: lime;
-}
+.coef-imdb {background-color: yellow;color: black;}
+.coef-rotten {background-color: green;}
+.coef-metacritic {background-color: darkgreen;}
+.coef-tmdb {background-color: lime;}
 .coef-number {
 	background-color: white;
 	color: black;
@@ -89,4 +80,19 @@ div.awesomplete > input {
 	color: white;
 	padding: 0.5em;
 	text-align: center;
+}
+/** LOGIN FORM **/
+.login-form {
+	margin: 2em auto;
+	color: white;
+	width: 40vw;
+}
+.login-form h2 {
+	text-align: center;
+}
+.login-form label {
+	color: white;
+}
+.login-form-contents-texts input {
+	width: 100%!important;
 }
