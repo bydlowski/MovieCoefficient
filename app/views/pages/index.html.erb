@@ -4,7 +4,13 @@
 	  	<div class="sidebar-index" style="background-color: white;">
 		  	<div class="userRatings">
 
-		  		<div class="front-sidebar your-rating-title">Your Rating:</div>
+		  		<div class="front-sidebar your-rating-title">
+		  			<% if user_signed_in? %>
+		  				Your Rating:
+						<% else %>
+							Average:
+				    <% end %>
+		  		</div>
 		  		<div class="front-sidebar your-rating">N/A</div>
 
 		  		<div class="coef-imdb front-sidebar">IMDB</div>

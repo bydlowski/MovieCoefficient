@@ -61,10 +61,10 @@ div.awesomplete > input {
 	width: 25%;
 	float: right;
 }
-.coef-imdb {background-color: yellow;color: black;}
-.coef-rotten {background-color: green;}
-.coef-metacritic {background-color: darkgreen;}
-.coef-tmdb {background-color: lime;}
+.coef-imdb {background-color: #f3ce13;color: black;}
+.coef-rotten {background-color: #e90013;}
+.coef-metacritic {background-color: #022330;}
+.coef-tmdb {background-color: #446a00;}
 .coef-number {
 	background-color: white;
 	color: black;
@@ -118,17 +118,17 @@ div.awesomplete > input {
 	float: left;
 	padding: 0.1em;
 }
-.coef-coef {background-color: red;}
+.coef-coef {background-color: darkslategray;color: white;}
 .website-title {text-transform: uppercase;margin: 0; font-size: 1.5vmin;}
 .website-rating {text-transform: uppercase;margin: 0; font-size: 4vmin; font-weight: bold;}
-.your-rating-title {text-transform: uppercase;margin: 0; font-size: 2vmin; font-weight: bold; background-color: darkslategrey}
+.your-rating-title {text-transform: uppercase;margin: 0; font-size: 2vmin; font-weight: bold; background-color: black}
 .your-rating {
 	border-top: none!important;
 	border: 1px solid black;
 	text-align: center;
 	margin-bottom: 0.3em;
 	padding: 0.2em 0;
-	background-color: red;
+	background-color: darkslategray;
 	font-size: 9vmin;
 	line-height: 1em;
 	font-weight: bold;

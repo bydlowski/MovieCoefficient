@@ -36,12 +36,18 @@ $(document).on('ready page:load', function () {
 function ratingResult(ratA, ratB, ratC, ratD, coefA, coefB, coefC, coefD) {
 
 	// Transform coefficients in percentages of the rating
-	var coefTotal = parseFloat(coefA) + parseFloat(coefB) + parseFloat(coefC) + parseFloat(coefD);
-	console.log(coefTotal);
-	var finalA = (parseFloat(coefA) / coefTotal).toFixed(2);
-	var finalB = (parseFloat(coefB) / coefTotal).toFixed(2);
-	var finalC = (parseFloat(coefC) / coefTotal).toFixed(2);
-	var finalD = (parseFloat(coefD) / coefTotal).toFixed(2);
+    if (isNaN(coefA) && isNaN(coefB)) {
+        var finalA = 0.25;
+        var finalB = 0.25;
+        var finalC = 0.25;
+        var finalD = 0.25;
+    } else {
+    	var coefTotal = parseFloat(coefA) + parseFloat(coefB) + parseFloat(coefC) + parseFloat(coefD);
+    	var finalA = (parseFloat(coefA) / coefTotal).toFixed(2);
+    	var finalB = (parseFloat(coefB) / coefTotal).toFixed(2);
+    	var finalC = (parseFloat(coefC) / coefTotal).toFixed(2);
+    	var finalD = (parseFloat(coefD) / coefTotal).toFixed(2);
+    };
 
 	// Create two arrays one with the ratings and one with the coefficients
     var ratingArray = [ratA, ratB, ratC, ratD];
