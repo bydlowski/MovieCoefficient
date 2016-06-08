@@ -17,21 +17,37 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.password_field :password, autocomplete: "off", class: 'showpassword' %>
+          <a class="small alert button passbutton">Show password</a>
         </div>
+
+      </div>
 
         <div class="field">
-          <%= f.label :email %>
-          <%= f.email_field :email %>
+          <p>E-mail submission is optional, but if you want to recover your password, you should add it :)</p>
+          <input type="checkbox" id="emailSignup" ><label for="emailSignup">I want to add my e-mail</label>
+          <div class="login-form-contents-texts">
+            <div class="email-form-signup">
+              <%= f.label :email %>
+              <%= f.email_field :email %>
+            </div>
+          </div>
         </div>
 
-      </div>
-
       <div class="actions">
-        <%= f.submit "Sign up", class: 'button' %>
+        <%= f.submit "Sign up", class: 'large button' %>
       </div>
-    <% end %>
+      <% end %>
+        
   </div>
-
   <%= render "devise/shared/links" %>
 </div>
+<script type="text/javascript">
+  var checkboxes = document.getElementsByTagName('input');
+
+  for (var i=0; i<checkboxes.length; i++)  {
+    if (checkboxes[i].type == 'checkbox')   {
+      checkboxes[i].checked = false;
+    }
+  }
+</script>
