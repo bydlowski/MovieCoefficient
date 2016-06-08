@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "MovieCoeficient" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
 
     <script>
     $(document).foundation();
@@ -16,7 +17,7 @@
 
   </head>
 
-  <body>
+  <body class="body-<%= controller_name %>">
 
 	 	<nav role="navigation" data-topbar="" class="top-bar">
     	<div class="top-bar">

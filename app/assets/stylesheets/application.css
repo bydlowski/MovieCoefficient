@@ -19,6 +19,10 @@
 
 @import "foundation_and_overrides";
 
+.body-pages, .body-coeficient {
+	background-color: white;
+}
+
 .row {
     max-width: 100vw;
     height: 91%;
