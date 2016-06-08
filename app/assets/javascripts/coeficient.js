@@ -2,6 +2,8 @@ $(document).on('ready page:load', function () {
 //$(document).ready(function() {
 	$('#countries').val('');
 	$('#textSubmit').val('5');
+    $('#form_imdb_rating').val('');
+    // Update the label with the value of the slider
 	$("#the_form form").on('mousemove', function() {
 	  $form = $(this);
 	  $input_value = $form.children("#textSubmit").val();
@@ -14,9 +16,11 @@ $(document).on('ready page:load', function () {
 	  $label = $form.children("#textSubmit").siblings("label");
 	  $label.text($input_value);
 	});
+    // Erase the value of the search when submit is hit
 	$(".erase").on('click', function() {
 	  $('#countries').val('');
-	})
+	});
+    // Hide e-mail form
 	$(".email-form-signup").hide();
 	$("#emailSignup").change(function(){
 		$(".email-form-signup").toggle();
