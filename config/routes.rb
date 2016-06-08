@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   put 'coeficient' => 'coeficient#update', as: "result"
   post 'reset' => 'reset#update', as: "reset"
   #get 'coeficient' => 'coeficient#index', as: :coeficient
+
+  get 'about' => 'pages#about', as: "about"
+  get 'wut' => 'pages#wut', as: "wut"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,6 +8,8 @@ textarea {
 /** Movie input **/
 .main {
 	padding: 1em;
+	background-color: darkslategrey;
+	height: 100%;
 }
 div.awesomplete > input {
 	width: 60vw;
@@ -45,7 +47,7 @@ div.awesomplete > input {
 	color: white;
 }
 .restart {
-	background-color: white;
+	background-color: lightgray;
 	color: black;
 	padding: 1em;
 	margin-top: 5em;
@@ -72,8 +74,9 @@ div.awesomplete > input {
 	font-size: 3vmin;
 	padding: 0.5em;
 	float: left!important;
-	background-color: white;
+	background-color: darkslategrey;
 	width: 75%!important;
+	color: white;
 }
 .number-amount {
 	background-color: red;
@@ -95,4 +98,10 @@ div.awesomplete > input {
 }
 .login-form-contents-texts input {
 	width: 100%!important;
+}
+/** SINGLE PAGES **/
+.page-container {
+	width: 70vw;
+	color: white;
+	margin: 2em auto;
 }

@@ -1,44 +1,42 @@
-<section>
-	<div class="row">
+<div class="row">
 
-	  <div class="small-12 large-2 columns sidebar"> 
-	  	<h3 style="color: white;">Personal Coeficient</h3>
-	  	<div class="userRatings">
-	  		<div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
-			  <div class="sidebar-site coef-rotten">Rotten<span><%= ((current_user.rotten_rating) * 100).to_i %>%</span></div>
-			  <div class="sidebar-site coef-metacritic">Metacritic<span><%= ((current_user.metacritic_rating) * 100).to_i %>%</span></div>
-			  <div class="sidebar-site coef-tmdb">TMDB<span><%= ((current_user.tmdb_rating) * 100).to_i %>%</span></div>
-			  <div class="sidebar-site coef-number"><span class="text-amount">Movies rated</span><span class="number-amount"><%= current_user.amount %></span></div>
-	  	</div>
-		  <div class="restart">
-		  	<p>If you want to restart the coeficient, click the button below:</p>
-				<%= button_to "Reset", reset_path, class: 'alert button', data: { confirm: "Are you sure?" }, method: :update %>
-			</div>
+  <div class="small-12 large-2 columns sidebar"> 
+  	<h3 style="color: black; margin: 0.5em 0;">Personal Coeficient</h3>
+  	<div class="userRatings">
+  		<div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-rotten">Rotten<span><%= ((current_user.rotten_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-metacritic">Metacritic<span><%= ((current_user.metacritic_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-tmdb">TMDB<span><%= ((current_user.tmdb_rating) * 100).to_i %>%</span></div>
+		  <div class="sidebar-site coef-number"><span class="text-amount">Movies rated</span><span class="number-amount"><%= current_user.amount %></span></div>
+  	</div>
+	  <div class="restart">
+	  	<p>If you want to restart the coeficient, click the button below:</p>
+			<%= button_to "Reset", reset_path, class: 'alert button', data: { confirm: "Are you sure?" }, method: :update %>
 		</div>
-	  <div class="small-12 large-10 columns main">
-	  	<div class="rating-suggestion">
-		  	<input id="countries" name="movie" placeholder="Enter a movie" />
-		  	<button class="alert hollow button erase">X</button>
-		  	<br />
-				<div id="the_form">
-					<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
-					  <%= f.range_field :user_rating, min: 0, max: 10, step: 0.1, class:'a', id: 'textSubmit' %>
-					  <%= f.label :user_rating, "5" %>
-					  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
-					  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
-					  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
-					  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
-					  <%= f.submit "Submit", id: 'resultSubmit', class: "button" %>
-					<% end %>
-				</div>
-	  	</div>
-	  	<div class="suggestion-info"></div>
-	  </div>
-
 	</div>
+  <div class="small-12 large-10 columns main">
+  	<div class="rating-suggestion">
+	  	<input id="countries" name="movie" placeholder="Enter a movie" />
+	  	<button class="alert hollow button erase">X</button>
+	  	<br />
+			<div id="the_form">
+				<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
+				  <%= f.range_field :user_rating, min: 0, max: 10, step: 0.1, class:'a', id: 'textSubmit' %>
+				  <%= f.label :user_rating, "5" %>
+				  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
+				  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
+				  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
+				  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
+				  <%= f.submit "Submit", id: 'resultSubmit', class: "button" %>
+				<% end %>
+			</div>
+  	</div>
+  	<div class="suggestion-info"></div>
+  </div>
+
+</div>
 
 <div id="result"></div>
-</section>
 
 <script type="text/javascript">
 	var input = document.getElementById("countries");

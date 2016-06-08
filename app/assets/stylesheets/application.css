@@ -20,9 +20,20 @@
 @import "foundation_and_overrides";
 
 .row {
-    max-width: 95vw;
+    max-width: 100vw;
+    height: 91%;
 }
 .erase {
-	line-height: 2em;
-	vertical-align: 1.5em;
+	border-radius: 50%;
+	padding: 0.5em;
+	font-size: 1.5em;
+	width: 2em;
+	line-height: 1em;
+	vertical-align: 0.75em;
+}
+body {
+	height: 100vh;
+}
+.top-bar {
+	height: 9%;
 }

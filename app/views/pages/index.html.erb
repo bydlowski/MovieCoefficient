@@ -1,7 +1,89 @@
-<div class="container">
-  <h1>Welcome!</h1>
-  <p>Register to get started.</p>
-  <p>
-    <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-  </p>
+<div class="row">
+
+	  <div class="small-12 large-2 columns sidebar"> 
+	  	<div class="sidebar-index" style="background-color: white;">
+	  		<h3 style="color: black; margin: 0.5em 0;">Ratings</h3>
+		  	<div class="userRatings">
+		  		<div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
+				  <div class="sidebar-site coef-rotten">Rotten<span><%= ((current_user.rotten_rating) * 100).to_i %>%</span></div>
+				  <div class="sidebar-site coef-metacritic">Metacritic<span><%= ((current_user.metacritic_rating) * 100).to_i %>%</span></div>
+				  <div class="sidebar-site coef-tmdb">TMDB<span><%= ((current_user.tmdb_rating) * 100).to_i %>%</span></div>
+		  	</div>
+			</div>
+		</div>
+
+	  <div class="small-12 large-10 columns main">
+	  	<div class="rating-suggestion">
+		  	<input id="countries" name="movie" placeholder="Enter a movie" />
+		  	<button class="alert hollow button erase">X</button>
+		  	<br />
+				<div id="the_form">
+					<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>
+					  <%= f.range_field :user_rating, min: 0, max: 10, step: 0.1, class:'a', id: 'textSubmit' %>
+					  <%= f.label :user_rating, "5" %>
+					  <%= f.hidden_field :form_imdb_rating, id: 'form_imdb_rating' %>
+					  <%= f.hidden_field :form_rotten_rating, id: 'form_rotten_rating' %>
+					  <%= f.hidden_field :form_tmdb_rating, id: 'form_tmdb_rating' %>
+					  <%= f.hidden_field :form_metacritic_rating, id: 'form_metacritic_rating' %>
+					  <%= f.submit "Submit", id: 'resultSubmit', class: "button" %>
+					<% end %>
+				</div>
+	  	</div>
+	  	<div class="suggestion-info"></div>
+	  </div> 
+
 </div>
+
+	<script type="text/javascript">
+	var input = document.getElementById("countries");
+	var awesomplete = new Awesomplete(input, {
+	  minChars: 3,
+	  autoFirst: true
+	});
+
+	$("input").on("keyup", function(){
+	  $.ajax({
+	    url: 'http://api.themoviedb.org/3/search/movie?query=' + this.value + '&api_key=0b56c7e05825db6e3182d1aa00d47307',
+	    //url: 'http://www.omdbapi.com/?type=movie&s=' + this.value,
+	    type: 'GET',
+	    dataType: 'json'
+	  })
+	  .success(function(data) {
+	    var list = [];
+	    $.each(data['results'], function(key, info) {
+	      var year = info[('release_date')].substring(0,4);
+	      //list.push(value['title'] + ' (' + year + ')' );
+	      list.push({
+	      	//label: info['title'] + ' (' + year + ')', 
+	      	label: '<div class="search-names"><div class="result-image"><img src="http://image.tmdb.org/t/p/w500/' + info['poster_path'] + '" /></div><div class="result-text">' + info['title'] + '<br />(' + year + ')</div></div>', 
+	      	value: info['title'] + ' (' + year + ')', 
+	      	extra: info['vote_average']});
+	    });
+	    awesomplete.list = list;
+	  });
+	});
+
+	Awesomplete.$.bind(input, {
+	  "awesomplete-select": function(evt) {
+	    var chosenMovie = evt.text['value']
+	    var ratingTMDB = evt.text['extra'];
+	    var movieNameWithSpaces = chosenMovie.substr(0, chosenMovie.indexOf(' ('));
+	    var movieName = movieNameWithSpaces.split(' ').join('+')
+	    var movieYear = (chosenMovie.substr(chosenMovie.length - 5)).match(/\d+/)[0];
+	    $.ajax('http://www.omdbapi.com/?t=' + movieName + '&y=' + movieYear + '&type=movie&tomatoes=true', {
+	        complete: function(p_oXHR, p_sStatus){
+	            oData = $.parseJSON(p_oXHR.responseText);
+	            ratingIMDB = Number(oData.imdbRating);
+	            ratingRotten = Number(oData.tomatoRating);
+	            preRatingMetacritic = Number(oData.Metascore);
+	            ratingMetacritic = parseFloat(preRatingMetacritic) / 10;
+	            $('#form_imdb_rating').val(ratingIMDB);
+	            $('#form_rotten_rating').val(ratingRotten);
+	            $('#form_tmdb_rating').val(ratingTMDB);
+	            $('#form_metacritic_rating').val(ratingMetacritic);
+	            $('.suggestion-info').html('<div class="info-poster"><img src="' + oData.Poster + '">');
+	        }
+	    });
+	  }
+	});
+</script>
