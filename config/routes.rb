@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   #put 'coefficient' => 'coefficient#result', as: "result"
   put 'coefficient' => 'coefficient#update', as: "result"
   post 'reset' => 'reset#update', as: "reset"
+  post 'hidecoef' => 'hidecoef#update', as: "hidecoef"
   #get 'coefficient' => 'coefficient#index', as: :coefficient
 
   get 'about' => 'pages#about', as: "about"

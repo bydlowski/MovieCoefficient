@@ -36,7 +36,9 @@
 	vertical-align: 0.75em;
 }
 body {
-	height: 100vh;
+	height: 100%;
+	margin: 0;
+	position: relative;
 }
 .top-bar {
 	height: 9%;

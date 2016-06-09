@@ -18,6 +18,15 @@
   <div class="small-12 large-10 columns main">
   	<div class="rating-suggestion">
   		<h2 style="color: white">Your Coefficient</h2>
+  		<% if user_signed_in? %>
+  			<% if current_user.hidecoef ==  false %>
+  				<div class="instructions">
+  					<p><b>Instructions</b></p>
+						<p>Type in a movie and give it a rating based on your opinion. You can rate as many movies as you want. When you are done, go to the movies page to see your personal rating!</p>
+						<%= button_to "Hide forever", hidecoef_path, class: 'alert button', method: :update %>
+					</div>
+				<% end %>			
+	    <% end %>
 	  	<input id="countries" name="movie" placeholder="Enter a movie" />
 	  	<button class="alert hollow button erase">X</button>
 	  	<br />
