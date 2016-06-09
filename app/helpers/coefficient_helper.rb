@@ -30,6 +30,15 @@ module CoefficientHelper
       return a
     end
 
+    unless (user.to_f > 0)
+      a = ""
+      a += '<div style="width: 30%;height: 30%;top: 0;right: 0;bottom: 0;left: 0;position: absolute;margin:auto;background-color: white;color: black;padding: 1em;text-align: center;">'
+      a += "<p>There was something wrong with your imput</p>"
+      a += '<p class="close-warning">Close</p>'
+      a += '</div>'
+      return a
+    end
+
     a = ""
     return a
 
