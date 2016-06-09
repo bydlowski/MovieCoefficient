@@ -1,6 +1,7 @@
 <div class="row">
 
   <div class="small-12 large-2 columns sidebar"> 
+  	<%= link_to 'Check out movie ratings!', root_path, class: 'invite button success' %>
   	<h3 style="color: black; margin: 0.5em 0;font-size: 1.8em;">Personal Coefficient</h3>
   	<div class="userRatings">
   		<div class="sidebar-site coef-imdb">IMDB<span><%= ((current_user.imdb_rating) * 100).to_i %>%</span></div>
@@ -16,6 +17,7 @@
 	</div>
   <div class="small-12 large-10 columns main">
   	<div class="rating-suggestion">
+  		<h2 style="color: white">Your Coefficient</h2>
 	  	<input id="countries" name="movie" placeholder="Enter a movie" />
 	  	<button class="alert hollow button erase">X</button>
 	  	<br />
@@ -85,7 +87,7 @@
 	            $('#form_rotten_rating').val(ratingRotten);
 	            $('#form_tmdb_rating').val(ratingTMDB);
 	            $('#form_metacritic_rating').val(ratingMetacritic);
-	            $('.suggestion-info').html('<div class="info-poster"><img src="' + oData.Poster + '">');
+	            $('.suggestion-info').html('<div id="suggestion-data"><div class="info-poster"><img src="' + oData.Poster + '"></div><div class="info-data"><p><b>Genre: </b>' + oData.Genre + '</p><p><b>Director: </b>' + oData.Director + '</p><p><b>Awards: </b>' + oData.Awards + '</p><p><b>Plot: </b>' + oData.Plot + '</p><p><b>Info: </b>' + oData.tomatoConsensus + '</p></div></div>');
 	        }
 	    });
 	  }
