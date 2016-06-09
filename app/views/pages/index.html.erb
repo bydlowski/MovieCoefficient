@@ -94,6 +94,27 @@
 	  <div class="small-12 large-10 columns main">
 	  	<div class="rating-suggestion">
 	  		<h2 style="color: white">Movie Search</h2>
+	  		<% if user_signed_in? %>
+	  			<% if current_user.hidesearch ==  false %>
+	  				<div class="instructions">
+	  					<p><b>Instructions</b></p>
+							<p>Here you can search a movie and see the rating based on your coefficient! If you have not yet created your coefficient click below or on the link on the left sidebar.</p>
+							<div class="instruction-buttons">
+								<%= link_to "Coefficient page", coefficient_path, class: 'button btn-instructions' %>
+								<%= button_to "Hide forever", hidesearch_path, class: 'alert button btn-instructions', method: :update %>
+							</div>						
+						</div>
+					<% end %>
+				<% else %>	
+					<div class="instructions">
+	  					<p><b>Instructions</b></p>
+							<p>Here you can search for a movie and see the rating based on your personal coefficient. You have to log in or sign up to create a coefficient.</p>
+							<div class="instruction-buttons">
+								<%= link_to 'log in', new_user_session_path, class: 'button btn-instructions' %>
+								<%= link_to 'sign up', new_user_registration_path, class: 'button btn-instructions' %>
+							</div>						
+						</div>
+		    <% end %>
 		  	<input id="countries" name="movie" placeholder="Enter a movie" />
 		  	<button class="alert hollow button erase">X</button>
 		  	<br />

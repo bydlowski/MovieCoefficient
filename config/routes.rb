@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   put 'coefficient' => 'coefficient#update', as: "result"
   post 'reset' => 'reset#update', as: "reset"
   post 'hidecoef' => 'hidecoef#update', as: "hidecoef"
+  post 'hidesearch' => 'hidesearch#update', as: "hidesearch"
   #get 'coefficient' => 'coefficient#index', as: :coefficient
 
   get 'about' => 'pages#about', as: "about"

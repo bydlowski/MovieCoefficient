@@ -22,8 +22,11 @@
   			<% if current_user.hidecoef ==  false %>
   				<div class="instructions">
   					<p><b>Instructions</b></p>
-						<p>Type in a movie and give it a rating based on your opinion. You can rate as many movies as you want. When you are done, go to the movies page to see your personal rating!</p>
-						<%= button_to "Hide forever", hidecoef_path, class: 'alert button', method: :update %>
+						<p>Type in a movie and give it a rating based on your opinion. You can rate as many movies as you want. When you are done, go to the movies page (by clicking below or in the button on the left sidebar) to see your personal rating!</p>
+						<div class="instruction-buttons">
+							<%= link_to "Movies page", root_path, class: 'button btn-instructions' %>
+							<%= button_to "Hide forever", hidecoef_path, class: 'alert button btn-instructions', method: :update %>
+						</div>						
 					</div>
 				<% end %>			
 	    <% end %>
