@@ -26,6 +26,7 @@ $(document).on('ready page:load', function () {
 		$(".email-form-signup").toggle();
 	});
 	$('.passbutton').mousedown(showPass).mouseup(hidePass);
+    
 	function showPass()
 	{
 	    $(".showpassword").attr('type','text');

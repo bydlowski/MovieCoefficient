@@ -166,3 +166,11 @@ div.awesomplete > input {
 .btn-instructions {
 	margin: 0 1em 1em 1em!important;
 }
+/** Javascript error message **/
+.close-warning {
+	background-color: red;
+	padding: 0.5em;
+	cursor: pointer;
+	text-transform: uppercase;
+	color: white;
+}
