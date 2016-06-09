@@ -39,6 +39,10 @@ $(document).on('ready page:load', function () {
 
 function ratingResult(ratA, ratB, ratC, ratD, coefA, coefB, coefC, coefD) {
 
+    if ( coefA == 0 && coefB == 0 && coefC == 0 && coefD == 0) {
+        return 'N/A'
+    }
+
 	// Transform coefficients in percentages of the rating
     if (isNaN(coefA) && isNaN(coefB)) {
         var finalA = 0.25;
