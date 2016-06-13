@@ -53,10 +53,18 @@
 <div id="result"></div>
 
 <script type="text/javascript">
+
+	function mySortFunc(text, input) {
+		splitText = text.split('(')[1];
+		splitInput = input.split('(')[1];
+	    return splitText < splitInput;
+	}
+
 	var input = document.getElementById("countries");
 	var awesomplete = new Awesomplete(input, {
 	  minChars: 3,
-	  autoFirst: true
+	  autoFirst: true,
+	  sort: mySortFunc
 	});
 
 	$("input").on("keyup", function(){

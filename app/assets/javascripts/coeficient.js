@@ -20,22 +20,25 @@ $(document).on('ready page:load', function () {
 	$(".erase").on('click', function() {
 	  $('#countries').val('');
 	});
+    // Erase form values when submit is clicked
+    $("#resultSubmit").on('click', function() {
+      setTimeout( function(){ 
+        console.log("Hey");
+        $('#form_imdb_rating').val(''); 
+        $('#form_rotten_rating').val('');
+        $('#form_tmdb_rating').val('');
+        $('#form_metacritic_rating').val('');
+      }  , 1000 );
+    });
     // Hide e-mail form
 	$(".email-form-signup").hide();
 	$("#emailSignup").change(function(){
 		$(".email-form-signup").toggle();
 	});
+    // Show password when the button is pressed and hide it when it's released
 	$('.passbutton').mousedown(showPass).mouseup(hidePass);
-    
-	function showPass()
-	{
-	    $(".showpassword").attr('type','text');
-	}
-
-	function hidePass()
-	{
-	    $(".showpassword").attr('type','password')
-	}	
+	function showPass()	{$(".showpassword").attr('type','text');};
+	function hidePass() {$(".showpassword").attr('type','password')};
 });
 
 function ratingResult(ratA, ratB, ratC, ratD, coefA, coefB, coefC, coefD) {

@@ -1,6 +1,6 @@
 module CoefficientHelper
 
-  def current_coefficient(imdb, rotten, tmdb, metacritic, amount)
+  def current_coefficient(imdb, rotten, metacritic, tmdb, amount)
 
     imdb_rating_helper = ((imdb * 100).to_i).to_s
     rotten_rating_helper = ((rotten * 100).to_i).to_s
@@ -18,7 +18,7 @@ module CoefficientHelper
 
   end
 
-  def input_check(user, imdb, rotten, tmdb, metacritic)
+  def input_check(user, imdb, rotten, metacritic, tmdb)
 
     unless (imdb.to_f > 0 && rotten.to_f > 0 && tmdb.to_f > 0 && metacritic.to_f > 0)
       a = ""
