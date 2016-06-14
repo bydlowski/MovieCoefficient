@@ -185,7 +185,7 @@
 	            ratingRotten = Number(oData.tomatoRating);
 	            preRatingMetacritic = Number(oData.Metascore);
 	            ratingMetacritic = parseFloat(preRatingMetacritic) / 10;
-	            $('.suggestion-info').html('<div id="suggestion-data"><div class="info-poster"><img src="' + oData.Poster + '"></div><div class="info-data"><p><b>Genre: </b>' + oData.Genre + '</p><p><b>Director: </b>' + oData.Director + '</p><p><b>Awards: </b>' + oData.Awards + '</p><p><b>Plot: </b>' + oData.Plot + '</p><p><b>Info: </b>' + oData.tomatoConsensus + '</p></div></div>');
+	            $('.suggestion-info').html('<div id="suggestion-data"><div class="info-poster"><img src="http://img.omdbapi.com/?apikey=3088e9b6&i=' + oData.imdbID + '"></div><div class="info-data"><p><b>Genre: </b>' + oData.Genre + '</p><p><b>Director: </b>' + oData.Director + '</p><p><b>Awards: </b>' + oData.Awards + '</p><p><b>Plot: </b>' + oData.Plot + '</p><p><b>Info: </b>' + oData.tomatoConsensus + '</p></div></div>');
 	            $('#frontRatingIMDB').text(ratingFunction(ratingIMDB));
 	            $('#frontRatingRotten').text(ratingFunction(ratingRotten));
 	            $('#frontRatingMetacritic').text(ratingFunction(ratingMetacritic));

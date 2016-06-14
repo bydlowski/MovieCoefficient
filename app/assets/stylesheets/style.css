@@ -170,5 +170,5 @@ div.awesomplete > input {
 .close-warning {background-color: red;padding: 0.5em;cursor: pointer;text-transform: uppercase;color: white;}
 /** Clear movie input **/ 
 span.deleteicon {position: relative;}
-span.deleteicon span {position: absolute;display: block;top: -1.1em;right: 1em;width: 3em;height: 3em;background: url(close.gif) no-repeat right 0px center;cursor: pointer; }
-span.deleteicon input { width: 60vw;font-size: 2rem;}
+span.deleteicon span {position: absolute;display: block;top: -1.2em;right: 1em;width: 3em;height: 3em;background: url(close.gif) no-repeat right 0px center;cursor: pointer; }
+span.deleteicon input { width: 60vw;font-size: 2rem;padding: 0.2em;}
