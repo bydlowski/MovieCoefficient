@@ -19,6 +19,11 @@ $(document).on('ready page:load', function () {
     // Erase the value of the search when submit is hit
 	$(".erase").on('click', function() {
 	  $('#countries').val('');
+      $('.suggestion-info').text('');
+      $('#form_imdb_rating').val(''); 
+      $('#form_rotten_rating').val('');
+      $('#form_tmdb_rating').val('');
+      $('#form_metacritic_rating').val('');
 	});
     // Erase form values when submit is clicked
     $("#resultSubmit").on('click', function() {
