@@ -30,8 +30,7 @@
 					</div>
 				<% end %>			
 	    <% end %>
-	  	<input id="countries" name="movie" placeholder="Enter a movie" />
-	  	<button class="alert hollow button erase">X</button>
+	  	<input id="countries" name="movie" placeholder="Enter a movie" class="deletable" />
 	  	<br />
 			<div id="the_form">
 				<%= form_for('result_path', method: 'put', action: 'update', remote: true) do |f| %>

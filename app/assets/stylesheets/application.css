@@ -27,14 +27,6 @@
     max-width: 100vw;
     height: 91%;
 }
-.erase {
-	border-radius: 50%;
-	padding: 0.5em;
-	font-size: 1.5em;
-	width: 2em;
-	line-height: 1em;
-	margin-bottom: 2em;
-}
 body {
 	height: 100%;
 	margin: 0;

@@ -16,19 +16,9 @@ $(document).on('ready page:load', function () {
 	  $label = $form.children("#textSubmit").siblings("label");
 	  $label.text($input_value);
 	});
-    // Erase the value of the search when submit is hit
-	$(".erase").on('click', function() {
-	  $('#countries').val('');
-      $('.suggestion-info').text('');
-      $('#form_imdb_rating').val(''); 
-      $('#form_rotten_rating').val('');
-      $('#form_tmdb_rating').val('');
-      $('#form_metacritic_rating').val('');
-	});
     // Erase form values when submit is clicked
     $("#resultSubmit").on('click', function() {
       setTimeout( function(){ 
-        console.log("Hey");
         $('#form_imdb_rating').val(''); 
         $('#form_rotten_rating').val('');
         $('#form_tmdb_rating').val('');
@@ -44,7 +34,17 @@ $(document).on('ready page:load', function () {
 	$('.passbutton').mousedown(showPass).mouseup(hidePass);
 	function showPass()	{$(".showpassword").attr('type','text');};
 	function hidePass() {$(".showpassword").attr('type','password')};
+    // Erase input and movie info when X is hit
+    $('input.deletable').wrap('<span class="deleteicon" />').after($('<span/>').click(function() {
+        $(this).prev('input').val('').focus();
+        $('.suggestion-info').text('');
+        $('#form_imdb_rating').val(''); 
+        $('#form_rotten_rating').val('');
+        $('#form_tmdb_rating').val('');
+        $('#form_metacritic_rating').val('');
+    }));
 });
+
 
 function ratingResult(ratA, ratB, ratC, ratD, coefA, coefB, coefC, coefD) {
 

@@ -22,8 +22,8 @@ module CoefficientHelper
 
     unless (imdb.to_f > 0 && rotten.to_f > 0 && tmdb.to_f > 0 && metacritic.to_f > 0)
       a = ""
-      a += '<div style="width: 30%;height: 30%;top: 0;right: 0;bottom: 0;left: 0;position: absolute;margin:auto;background-color: white;color: black;padding: 1em;text-align: center;">'
-      a += "<p>Please pick another movie. The selected one does not have a rating on IMDB, Rotten Tomatoes, Metacritic or The Movie DB</p>"
+      a += '<div style="width: 30%;height: 35%;top: 0;right: 0;bottom: 0;left: 0;position: absolute;margin:auto;background-color: white;color: black;padding: 1em;text-align: center;">'
+      a += "<p>Please pick another movie. Either you didnt choose a movie or the selected one does not have a rating on IMDB, Rotten Tomatoes, Metacritic or The Movie DB</p>"
       a += "<p>This rating was not saved in your coefficient</p>"
       a += '<p class="close-warning">Close</p>'
       a += '</div>'
