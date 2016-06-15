@@ -13,3 +13,8 @@ It was created using Ruby on Rails and the following gems:
 - Devise
 - Foundation
 
+---
+Possible next steps:
+- Create a favorite movie icon to save some movies into the user's profile
+- Create a 'users rates' table to the movies to add another rating score 
+
